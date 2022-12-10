@@ -3,23 +3,147 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionarios-01" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bf90f6f7-ba1d-44ac-8962-180883bd2e14">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL UDEMY Data Adapter"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="479"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="521"/>
+	<style name="estilo_cores_alternadas" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#99FFFF"/>
+		</conditionalStyle>
+	</style>
 	<queryString language="SQL">
-		<![CDATA[]]>
+		<![CDATA[select id_funcionario, nome, data_nascimento, salario
+from funcionarios]]>
 	</queryString>
+	<field name="id_funcionario" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id_funcionario"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_funcionario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+	</field>
+	<field name="data_nascimento" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="data_nascimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="data_nascimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+	</field>
+	<field name="salario" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="salario"/>
+		<property name="com.jaspersoft.studio.field.label" value="salario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="20" width="223" height="30" forecolor="#4362DE" uuid="c7357a69-1b17-4dab-b2af-a900657f9b0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Relatório Funcionarios"]]></textFieldExpression>
+			</textField>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#FFFFFF" backcolor="#030303" uuid="7b7a8d15-6f3b-4668-8a65-778c8ce9ea4b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5308080-43b0-4f63-8060-f9efdd0552b4"/>
+				</reportElement>
+				<box padding="5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="90" y="0" width="170" height="30" forecolor="#FFFFFF" backcolor="#030303" uuid="4d83d929-e05d-4185-b8ba-f3fcca7bcd39">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e45a7fa3-ca1d-47aa-9249-fb55329f3b35"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="260" y="0" width="143" height="30" forecolor="#FFFFFF" backcolor="#030303" uuid="7315c06b-16bc-491d-9df2-c620612a4ef5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="06210c63-e6aa-4682-bc33-3075de9ac7b2"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Nascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="403" y="0" width="143" height="30" forecolor="#FFFFFF" backcolor="#030303" uuid="e3fb6833-9a0f-49e7-a2fa-10e4dd21980f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6589982-3cfa-40ca-83e9-f92a5b5f1eae"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salário]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement style="estilo_cores_alternadas" x="0" y="0" width="90" height="30" uuid="07e58389-3eb1-4ef9-a49a-cd89ee50579a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5308080-43b0-4f63-8060-f9efdd0552b4"/>
+				</reportElement>
+				<box padding="5">
+					<pen lineWidth="1.0" lineColor="#D6D6D6"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_funcionario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="estilo_cores_alternadas" x="90" y="0" width="170" height="30" uuid="a6e00b1b-adb4-4c71-b33c-ce89881e45cb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e45a7fa3-ca1d-47aa-9249-fb55329f3b35"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineColor="#D6D6D6"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="estilo_cores_alternadas" x="260" y="0" width="143" height="30" uuid="094ad309-437c-4bdd-90d5-353ac15eb85f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="06210c63-e6aa-4682-bc33-3075de9ac7b2"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineColor="#D6D6D6"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data_nascimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="estilo_cores_alternadas" x="403" y="0" width="143" height="30" uuid="b502c41f-60ab-42b7-8d05-ce2ebd875134">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6589982-3cfa-40ca-83e9-f92a5b5f1eae"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineColor="#D6D6D6"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salario}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
